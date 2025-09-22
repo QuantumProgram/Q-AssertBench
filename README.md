@@ -43,7 +43,7 @@ Q-AssertBench can be used to systematically evaluate the ability of large langua
 
 1.Input to the Model
 
-For each benchmark task (QABxx/):
+For each benchmark task (QABid/):
 
 program.py is the quantum program written in Qiskit.
 
@@ -53,8 +53,7 @@ To evaluate an LLM, provide the model with the program and the corresponding pro
 
 Interaction with the model may be conducted via chat (e.g., ChatGPT, Claude, Gemini) or via API calls.
 
-It is recommended to append an assertion format hint to the prompt for consistency.
-Templates for such hints are available in Q-AssertBench.json.
+It is recommended to append an assertion format hint to the prompt for consistency. Templates for such hints are available in Q-AssertBench.json.
 
 2.Model Output
 
@@ -94,8 +93,8 @@ Experimental_data/
 ├── deepseek/
 ├── gemini/
 ├── llama4/
-├── Experimental_results.csv
-├── Experimental_results.json
+├── Experiment_results.csv
+├── Experiment_results.json
 ├── error_types.pdf
 ├── pass_at_k.pdf
 └── task_level.pdf
@@ -105,9 +104,9 @@ model_output.json is the raw outputs of the LLM.
 
 model_test_result.json is the evaluation summary for that model, obtained by testing and analyzing its outputs.
 
-Experimental_results.csv/json are the aggregated results across all models and tasks.
+Experiment_results.csv/json are the aggregated results across all models and tasks.
 
-### Example of Aggregated Results
+Example of Aggregated Results
 
 | Model      | Correct Assertions | Incorrect Assertions | Failed Generations |
 |------------|-------------------|----------------------|--------------------|
