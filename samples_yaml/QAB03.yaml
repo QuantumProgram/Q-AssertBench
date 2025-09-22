@@ -1,0 +1,14 @@
+id: QAB03
+title: Quantum Swap Gate
+description: >
+  This circuit initializes three qubits with fixed probabilities of measuring |1⟩,
+  then applies two SWAP operations to move the quantum state of qubit 2 to qubit 0.
+  The task is to generate an assertion that verifies whether the final measurement
+  probability of qubit 0 matches that of the original qubit 2.
+program: ../Q-AssertBench/QAB03/program.py
+prompt: ../Q-AssertBench/QAB03/prompt.py
+gold_assertion: ../Q-AssertBench/QAB03/gold_assertion.py
+faulty_variant: ../Q-AssertBench/QAB03/faulty.py
+metadata:
+  qubits: 3
+  shots: 1024

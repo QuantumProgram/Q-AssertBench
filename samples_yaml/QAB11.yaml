@@ -1,0 +1,12 @@
+id: QAB11
+title: Deutsch Algorithm with Fixed Oracle
+description: >
+  This quantum program implements the Deutsch algorithm with a fixed oracle corresponding to f(x) = x, a balanced function.
+  The task is to generate an assertion that verifies this expected outcome.
+program: ../Q-AssertBench/QAB11/program.py
+prompt: ../Q-AssertBench/QAB11/prompt.py
+gold_assertion: ../Q-AssertBench/QAB11/gold_assertion.py
+faulty_variant: ../Q-AssertBench/QAB11/faulty.py
+metadata:
+  qubits: 2
+  shots: 1024
