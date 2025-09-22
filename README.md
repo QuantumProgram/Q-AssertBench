@@ -41,7 +41,7 @@ Q-AssertBench.json and Q-AssertBench.yaml are the complete benchmark specificati
 
 Q-AssertBench can be used to systematically evaluate the ability of large language models (LLMs) to generate executable assertions for quantum programs.
 
-1. Input to the Model
+1.Input to the Model
 
 For each benchmark task (QABxx/):
 
@@ -56,11 +56,11 @@ Interaction with the model may be conducted via chat (e.g., ChatGPT, Claude, Gem
 It is recommended to append an assertion format hint to the prompt for consistency.
 Templates for such hints are available in Q-AssertBench.json.
 
-2. Model Output
+2.Model Output
 
 The LLM is expected to produce an assertion in Qiskit/Python code that enforces the property described in the prompt.
 
-3. Evaluation Methods
+3.Evaluation Methods
 
 Generated assertions can be evaluated along multiple dimensions:
 
@@ -70,7 +70,7 @@ Comparison with Gold Assertion: Compare the generated assertion with the expert-
 
 Mutation Testing: Run the assertion against the faulty.py variants of the program to test whether it can detect violations of the intended property.
 
-4. Integration
+4.Integration
 
 JSON/YAML Interface: The complete benchmark specifications are provided in Q-AssertBench.json and Q-AssertBench.yaml, which can be easily parsed in evaluation pipelines.
 
