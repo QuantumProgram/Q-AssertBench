@@ -8,7 +8,7 @@ a set of faulty program variants for robustness testing.
 
 ## Dataset Structure
 The repository is organized as follows:
-'''
+```text
 Q-AssertBench/
 ├── QAB01/
 │   ├── program.py
@@ -17,15 +17,18 @@ Q-AssertBench/
 │   └── faulty.py
 ├── QAB02/
 ├── QAB03/
-...
+├──...
 samples_json/
+├── QAB01.json
+├── QAB02.json
+├──...
 samples_yaml/
+├── QAB01.yaml
+├── QAB02.yaml
+├──...
 Q-AssertBench.json
 Q-AssertBench.yaml
-LICENSE
-README.md
-'''
-
-Q-AssertBench/ is the main dataset directory. Each subdirectory (e.g., QAB01, QAB02, …) is a benchmark task.samples_json/ and samples_yaml/ are example datasets provided in JSON and YAML formats, which make integration with external pipelines easier.
+```
+Q-AssertBench is the main dataset directory. Each subdirectory (e.g., QAB01, QAB02, …) is a benchmark task. samples_json and samples_yaml are example datasets provided in JSON and YAML formats, which make integration with external pipelines easier.
 
 Q-AssertBench.json and Q-AssertBench.yaml are the complete benchmark specifications provided in JSON and YAML formats.
