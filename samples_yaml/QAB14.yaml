@@ -1,0 +1,16 @@
+id: QAB14
+title: Deutsch–Jozsa Algorithm with Configurable Oracle
+description: >
+  This quantum program implements the Deutsch–Jozsa algorithm with two input qubits and one ancilla qubit.
+  The oracle type is determined by a parameter: oracle_type=0 corresponds to a constant function, while oracle_type=1 corresponds to a balanced function.
+  The expected measurement outcomes differ accordingly:
+  - For constant: the input qubits should be observed as '00'.
+  - For balanced: the input qubits should not be observed as '00'.
+  The task is to generate an assertion that verifies consistency between the oracle type and the observed measurement results.
+program: ../Q-AssertBench/QAB14/program.py
+prompt: ../Q-AssertBench/QAB14/prompt.py
+gold_assertion: ../Q-AssertBench/QAB14/gold_assertion.py
+faulty_variant: ../Q-AssertBench/QAB14/faulty.py
+metadata:
+  qubits: 3
+  shots: 1024

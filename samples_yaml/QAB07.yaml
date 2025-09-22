@@ -1,0 +1,12 @@
+id: QAB07
+title: Uniform Distribution of Quantum States
+description: >
+  This quantum program prepares a quantum state where all possible basis states are expected to appear with roughly equal probability.
+  The goal is to generate an assertion that verifies the uniformity of the output distribution.
+program: ../Q-AssertBench/QAB07/program.py
+prompt: ../Q-AssertBench/QAB07/prompt.py
+gold_assertion: ../Q-AssertBench/QAB07/gold_assertion.py
+faulty_variant: ../Q-AssertBench/QAB07/faulty.py
+metadata:
+  qubits: 3
+  shots: 1024

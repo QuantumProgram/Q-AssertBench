@@ -1,0 +1,15 @@
+id: QAB26
+title: Shor's Algorithm – Period Finding
+description: >
+  This quantum program demonstrates the period-finding subroutine of Shor's algorithm.
+  For N=15 and a=2, the periodic function x ↦ 2^x mod 15 has period r=4.
+  The expected measurement outcomes are consistent with multiples of 2
+  in the computational basis (000, 010, 100, 110).
+  The task is to generate an assertion that verifies this periodicity.
+program: ../Q-AssertBench/QAB26/program.py
+prompt: ../Q-AssertBench/QAB26/prompt.py
+gold_assertion: ../Q-AssertBench/QAB26/gold_assertion.py
+faulty_variant: ../Q-AssertBench/QAB26/faulty.py
+metadata:
+  qubits: 5
+  shots: 1024
