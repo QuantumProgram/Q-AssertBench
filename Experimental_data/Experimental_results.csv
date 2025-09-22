@@ -1,8 +1,8 @@
 Metric,chatgpt4,claude,deepseek,gemini,llama4
 pass,954,864,707,672,401
-Correct Assertion,61.55%,55.74%,45.61%,43.35%,25.87%
-Incorrect Assertion,33.81%,34.39%,41.94%,40.71%,50.39%
-Failed Generation,4.65%,9.87%,12.45%,15.94%,23.74%
+Correct_Assertion,61.55%,55.74%,45.61%,43.35%,25.87%
+Incorrect_Assertion,33.81%,34.39%,41.94%,40.71%,50.39%
+Failed_Generation,4.65%,9.87%,12.45%,15.94%,23.74%
 assertion_misjudgment,270,267,404,387,606
 assertion_invalid,254,266,246,244,175
 success_generated,1478,1397,1357,1303,1182
