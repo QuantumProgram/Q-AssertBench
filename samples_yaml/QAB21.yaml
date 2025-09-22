@@ -1,0 +1,16 @@
+id: QAB21
+title: Quantum Fourier Transform (QFT) – Periodic Input Peaks
+description: >
+  This quantum program implements the Quantum Fourier Transform (QFT) on 3 qubits.
+  A periodic input state (|000⟩ + |100⟩)/√2 is prepared before applying QFT.
+  The expected result is a non-uniform measurement distribution with strong peaks,
+  reflecting the Fourier transform of the periodic input.
+  The task is to generate an assertion that verifies the presence of these peaks
+  in the observed distribution.
+program: ../Q-AssertBench/QAB21/program.py
+prompt: ../Q-AssertBench/QAB21/prompt.py
+gold_assertion: ../Q-AssertBench/QAB21/gold_assertion.py
+faulty_variant: ../Q-AssertBench/QAB21/faulty.py
+metadata:
+  qubits: 3
+  shots: 1024
