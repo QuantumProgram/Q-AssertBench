@@ -1,0 +1,15 @@
+id: QAB22
+title: Quantum Fourier Transform with Inverse (QFT + QFT†)
+description: >
+  This quantum program demonstrates that applying the Quantum Fourier Transform (QFT)
+  followed by its inverse (QFT†) recovers the original input state.
+  In this example, the input state |101⟩ is prepared. After QFT and QFT†,
+  the measurement results should be concentrated on |101⟩ (probability > 0.5).
+  The task is to generate an assertion that verifies this identity property.
+program: ../Q-AssertBench/QAB22/program.py
+prompt: ../Q-AssertBench/QAB22/prompt.py
+gold_assertion: ../Q-AssertBench/QAB22/gold_assertion.py
+faulty_variant: ../Q-AssertBench/QAB22/faulty.py
+metadata:
+  qubits: 3
+  shots: 1024

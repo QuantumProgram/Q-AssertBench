@@ -1,0 +1,17 @@
+id: QAB31
+title: Grover's Algorithm – High-QuBit Target Amplification
+description: >
+  This benchmark evaluates a 15-qubit implementation of Grover's algorithm. The task is
+  to insert a diagnostic assertion that verifies whether the target bitstring is successfully
+  amplified compared to other measurement outcomes. The circuit uses a controlled oracle and
+  diffuser for amplitude amplification. A faulty variant disables the diffuser to simulate
+  poor amplification, while the assertion checks if the target state is significantly more
+  likely than any other.
+
+program: ../Q-AssertBench/QAB31/program.py
+prompt: ../Q-AssertBench/QAB31/prompt.py
+gold_assertion: ../Q-AssertBench/QAB31/gold_assertion.py
+faulty_variant: ../Q-AssertBench/QAB31/faulty.py
+metadata:
+  qubits: 15
+  shots: 4096
