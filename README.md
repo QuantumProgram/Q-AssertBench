@@ -75,3 +75,46 @@ Mutation Testing: Run the assertion against the faulty.py variants of the progra
 JSON/YAML Interface: The complete benchmark specifications are provided in Q-AssertBench.json and Q-AssertBench.yaml, which can be easily parsed in evaluation pipelines.
 
 Flexible Use: Depending on your experimental setup, you can use Q-AssertBench in an interactive setting (chat-based) or an automated pipeline (API-based).
+
+## Experimental Data
+
+This repository also provides experimental data collected from running Q-AssertBench on several representative large language models (LLMs), including ChatGPT, Claude, DeepSeek, Gemini, and Llama.
+For each model, every benchmark task was repeated 50 times to account for the stochastic nature of LLM outputs and to enable statistically meaningful evaluation.
+
+The experimental data is organized as follows:
+```text
+Experimental_data/
+├── chatgpt4/
+│   ├── QAB01_test_result.json
+│   ├── QAB02_test_result.json
+│   ├── ...
+│   ├── chatgpt4_output.json
+│   └── chatgpt4_test_result.json
+├── claude/
+├── deepseek/
+├── gemini/
+├── llama4/
+├── Experimental_results.csv
+├── Experimental_results.json
+├── error_types.pdf
+├── pass_at_k.pdf
+└── task_level.pdf
+```
+
+model_output.json is the raw outputs of the LLM.
+
+model_test_result.json is the evaluation summary for that model, obtained by testing and analyzing its outputs.
+
+Experimental_results.csv/json are the aggregated results across all models and tasks.
+
+### Example of Aggregated Results
+
+| Model      | Correct Assertions | Incorrect Assertions | Failed Generations |
+|------------|-------------------|----------------------|--------------------|
+| ChatGPT-4  | 61.55%            | 33.81%               | 4.65%              |
+| Claude-4   | 55.74%            | 34.39%               | 9.87%              |
+| DeepSeek   | 45.61%            | 41.94%               | 12.45%             |
+| Gemini-2.5 | 43.35%            | 40.71%               | 15.94%             |
+| LLaMA-4    | 25.87%            | 50.39%               | 23.74%             |
+
+
