@@ -1,0 +1,14 @@
+id: QAB24
+title: Grover's Algorithm – Uniform Superposition Check
+description: >
+  This quantum program implements Grover's algorithm on 3 qubits.
+  A uniform superposition is prepared using Hadamard gates before applying
+  the oracle and diffusion operator. The task is to generate an assertion
+  that verifies the uniformity of this initial state preparation.
+program: ../Q-AssertBench/QAB24/program.py
+prompt: ../Q-AssertBench/QAB24/prompt.py
+gold_assertion: ../Q-AssertBench/QAB24/gold_assertion.py
+faulty_variant: ../Q-AssertBench/QAB24/faulty.py
+metadata:
+  qubits: 3
+  shots: 1024

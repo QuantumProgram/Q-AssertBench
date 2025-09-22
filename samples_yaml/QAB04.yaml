@@ -1,0 +1,12 @@
+id: QAB04
+title: Pauli Gate and Probabilistic Distribution
+description: >
+  This quantum program applies a single parameterized Pauli gate to a qubit, resulting in a non-uniform measurement probability distribution.
+  The goal is to generate an assertion that verifies whether the observed measurement statistics align with the expected probabilistic behavior.
+program: ../Q-AssertBench/QAB04/program.py
+prompt: ../Q-AssertBench/QAB04/prompt.py
+gold_assertion: ../Q-AssertBench/QAB04/gold_assertion.py
+faulty_variant: ../Q-AssertBench/QAB04/faulty.py
+metadata:
+  qubits: 1
+  shots: 1024
