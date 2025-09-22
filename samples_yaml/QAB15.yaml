@@ -1,0 +1,14 @@
+id: QAB15
+title: Bernstein–Vazirani Algorithm and Uniform Superposition
+description: >
+  This quantum program implements the Bernstein–Vazirani algorithm with three input qubits and one ancilla qubit.
+  A critical step in the algorithm is the preparation of a uniform superposition across all input qubits.
+  The task is to generate an assertion that verifies this uniform distribution, ensuring that the Hadamard
+  layer has been correctly applied.
+program: ../Q-AssertBench/QAB15/program.py
+prompt: ../Q-AssertBench/QAB15/prompt.py
+gold_assertion: ../Q-AssertBench/QAB15/gold_assertion.py
+faulty_variant: ../Q-AssertBench/QAB15/faulty.py
+metadata:
+  qubits: 4
+  shots: 1024
