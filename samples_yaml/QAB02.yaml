@@ -1,0 +1,14 @@
+id: QAB02
+title: Bell State Preparation
+description: >
+  The program prepares a 2-qubit Bell state using a Hadamard gate and a CNOT gate.
+  The final quantum state should be an entangled state (|00⟩ + |11⟩)/√2, where both
+  measurement outcomes appear with roughly equal probability. The goal is to assert
+  whether the entanglement behavior is preserved through the measurements.
+program: ../Q-AssertBench/QAB02/program.py
+prompt: ../Q-AssertBench/QAB02/prompt.py
+gold_assertion: ../Q-AssertBench/QAB02/gold_assertion.py
+faulty_variant: ../Q-AssertBench/QAB02/faulty.py
+metadata:
+  qubits: 2
+  shots: 1024

@@ -1,0 +1,15 @@
+id: QAB12
+title: Deutsch Algorithm with Configurable Oracle
+description: >
+  This quantum program implements the Deutsch algorithm with a configurable oracle.
+  The oracle type is set by a parameter: oracle_type=0 corresponds to a constant function, while oracle_type=1 corresponds to a balanced function.
+  The expected measurement outcome of the first qubit is deterministic and should match the oracle type.
+  The task is to insert an assertion that verifies consistency between the oracle parameter and the observed result.
+program: ../Q-AssertBench/QAB12/program.py
+prompt: ../Q-AssertBench/QAB12/prompt.py
+gold_assertion: ../Q-AssertBench/QAB12/gold_assertion.py
+faulty_variant: ../Q-AssertBench/QAB12/faulty.py
+metadata:
+  qubits: 2
+  shots: 1024
+

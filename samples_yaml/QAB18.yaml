@@ -1,0 +1,15 @@
+id: QAB18
+title: Simon’s Algorithm – Pairwise Input Collapse
+description: >
+  This quantum program implements Simon’s algorithm with hidden period a = "11".
+  After measuring the output register, the input register should collapse into states
+  that appear in pairs related by the hidden string.
+  The task is to generate an assertion that verifies the presence of this pairwise structure
+  in the input register measurement results.
+program: ../Q-AssertBench/QAB18/program.py
+prompt: ../Q-AssertBench/QAB18/prompt.py
+gold_assertion: ../Q-AssertBench/QAB18/gold_assertion.py
+faulty_variant: ../Q-AssertBench/QAB18/faulty.py
+metadata:
+  qubits: 4
+  shots: 1024
