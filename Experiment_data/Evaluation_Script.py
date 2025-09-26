@@ -1,3 +1,20 @@
+"""
+Evaluation_Script.py — reference evaluation script (for demonstration purposes).
+
+What this script shows:
+- How to classify per-sample outcomes into categories
+  (pass / assertion_misjudgment / assertion_invalid / format_error / generation_failed).
+- How to compute per-task metrics (pass@1, pass@5, and also Correct Assertion,
+  Incorrect Assertion, and Failed Generation) and aggregate them at the model level.
+- How to aggregate per-model statistics and emit two artifacts:
+    (1) <model_name>_test_result.json inside each model directory, whose first
+        entry is the model-level "ALL" summary, followed by per-task entries.
+    (2) Experiment_result.json at ROOT_DIR, with one summary entry per model.
+
+Note:
+This script is designed for the specific experimental data format we used.
+"""
+
 import json
 from pathlib import Path
 from collections import Counter, OrderedDict
@@ -35,9 +52,9 @@ def safe_mean(xs: List[float]) -> float:
 
 def compute_pass_metrics(pass_cnt: int, total: int, success_gen: int):
     """
-    Compute per-task pass@1 and pass@5 under two denominators.
-    Note: pass@5 here uses the standard independent-trials approximation:
-          p5 = 1 - (1 - p1)**5  (applied per task)
+    Compute per-task pass@1 and pass@5.
+    Note: pass@5 uses the independent-trials approximation:
+          p5 = 1 - (1 - p1)^5  (applied per task).
     """
     p1_total = (pass_cnt / total) if total > 0 else 0.0
     p5_total = 1.0 - (1.0 - p1_total) ** 5 if total > 0 else 0.0
@@ -45,10 +62,10 @@ def compute_pass_metrics(pass_cnt: int, total: int, success_gen: int):
     p5_succ = 1.0 - (1.0 - p1_succ) ** 5 if success_gen > 0 else 0.0
 
     return {
-        "_p1_total": p1_total,
-        "_p5_total": p5_total,
-        "_p1_succ": p1_succ,
-        "_p5_succ": p5_succ,
+        "p1_total": p1_total,
+        "p5_total": p5_total,
+        "p1_succ": p1_succ,
+        "p5_succ": p5_succ,
         "pass@1_total": fmt_pct(p1_total),
         "pass@5_total": fmt_pct(p5_total),
         "pass@1_success": fmt_pct(p1_succ),
@@ -109,32 +126,27 @@ def process_model_folder(model_dir: Path):
         counter["total"] = total
         counter["success_generated"] = success_generated
 
-        # Store raw values and formatted strings separately
+        # Compute metrics
         pass_metrics = compute_pass_metrics(pass_cnt, total, success_generated)
-        counter["_p1_total"] = pass_metrics["_p1_total"]
-        counter["_p5_total"] = pass_metrics["_p5_total"]
-        counter["_p1_succ"] = pass_metrics["_p1_succ"]
-        counter["_p5_succ"] = pass_metrics["_p5_succ"]
         counter["pass@1_total"] = pass_metrics["pass@1_total"]
         counter["pass@5_total"] = pass_metrics["pass@5_total"]
         counter["pass@1_success"] = pass_metrics["pass@1_success"]
         counter["pass@5_success"] = pass_metrics["pass@5_success"]
+        counter["pass@1_success_level"] = label_success_level(pass_metrics["p1_succ"])
 
-        counter["pass@1_success_level"] = label_success_level(pass_metrics["_p1_succ"])
         task_stats[task_id] = counter
 
         # Collect per-task values for macro-averaging
-        p1_succ_vals.append(pass_metrics["_p1_succ"])
-        p5_succ_vals.append(pass_metrics["_p5_succ"])
+        p1_succ_vals.append(pass_metrics["p1_succ"])
+        p5_succ_vals.append(pass_metrics["p5_succ"])
 
     # Compute model-level summary with macro-averages across tasks
     pass_counts = [stats.get("pass", 0) for stats in task_stats.values()] or [0]
     max_pass_count = max(pass_counts)
     min_pass_count = min(pass_counts)
 
-    # Macro-average over tasks (correct for heterogeneous task difficulty)
-    avg_p1_succ = safe_mean(p1_succ_vals)
-    avg_p5_succ = safe_mean(p5_succ_vals)  # FIX: average per-task pass@5 directly
+    avg_p1_succ = safe_mean(p1_succ_vals)  # FIX: macro-average across tasks
+    avg_p5_succ = safe_mean(p5_succ_vals)
 
     high_count = sum(1 for v in p1_succ_vals if v > 0.7)
     mid_count = sum(1 for v in p1_succ_vals if 0.2 <= v <= 0.7)
@@ -164,7 +176,7 @@ def process_model_folder(model_dir: Path):
 
     print(f"[✓] Saved {out_file}")
 
-    # Return model-level summary for EXperiment_result.json
+    # Return model-level summary for Experiment_result.json
     overall = dict(summary_counter)
     success_generated_all = (
         overall.get("total", 0)
