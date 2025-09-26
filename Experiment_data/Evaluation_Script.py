@@ -1,3 +1,21 @@
+"""
+Evaluation_Script.py — reference evaluation script (for demonstration purposes).
+
+What this script shows:
+- How to classify per-sample outcomes into categories
+  (pass / assertion_misjudgment / assertion_invalid / format_error / generation_failed).
+- How to compute per-task metrics (pass@1, pass@5, and also Correct Assertion,
+  Incorrect Assertion, and Failed Generation) and aggregate them at the model level.
+- How to aggregate per-model statistics and emit two artifacts:
+    (1) <model_name>_test_result.json inside each model directory, whose first
+        entry is the model-level "ALL" summary, followed by per-task entries.
+    (2) Experiment_result.json at ROOT_DIR, with one summary entry per model.
+
+Note:
+This script is designed for the specific experimental data format we used.
+If your data schema or directory layout differs, adaptation will be required.
+"""
+
 import json
 from pathlib import Path
 from collections import Counter, OrderedDict
