@@ -110,7 +110,7 @@ Example of Aggregated Results
 
 | Model      | Correct Assertions | Incorrect Assertions | Failed Generations |
 |------------|-------------------|----------------------|--------------------|
-| ChatGPT-4  | 61.55%            | 33.81%               | 4.65%              |
+| ChatGPT-4  | 61.03%            | 35.23%               | 3.74%              |
 | Claude-4   | 55.74%            | 34.39%               | 9.87%              |
 | DeepSeek   | 45.61%            | 41.94%               | 12.45%             |
 | Gemini-2.5 | 43.35%            | 40.71%               | 15.94%             |
