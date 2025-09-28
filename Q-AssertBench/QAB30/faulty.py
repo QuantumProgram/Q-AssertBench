@@ -18,14 +18,12 @@ class ShorLargeCircuitFaulty:
     def build_circuit(self):
         qc = QuantumCircuit(self.total_qubits, self.n_count)
 
-        # Step 1: Hadamard on counting register
         for q in range(self.n_count):
             qc.h(q)
 
-        # ❌ Step 2: Remove all entanglement (missing QPE-like CX structure)
+        # Faulty: Remove all entanglement (missing QPE-like CX structure)
         # (This simulates a circuit with structural fault in phase estimation)
 
-        # Step 3: Apply inverse QFT to counting register
         for j in range(self.n_count // 2):
             qc.swap(j, self.n_count - j - 1)
 
@@ -35,7 +33,6 @@ class ShorLargeCircuitFaulty:
                 angle = -np.pi / (2 ** (k - j))
                 qc.cp(angle, k, j)
 
-        # Step 4: Measure counting register
         for i in range(self.n_count):
             qc.measure(i, i)
 
