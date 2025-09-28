@@ -8,14 +8,11 @@ class InterferenceControlCircuit:
         self.backend = Aer.get_backend("qasm_simulator")
 
     def build_circuit(self):
-        # Step 1: Create superposition on q0
+        
         self.circuit.h(0)
-
-        # Step 2: Faulty CNOT sequence
         self.circuit.cx(0, 1)  # q0 controls q1 (correct)
         self.circuit.cx(2, 1)  # Faulty: reversed direction (should be q1 -> q2)
 
-        # Step 3: Measurement
         self.circuit.measure(range(3), range(3))
 
     def run(self):
