@@ -22,7 +22,7 @@ class SimonsAlgorithmCircuit:
 
     def build_circuit(self):
         # Step 1: Faulty Hadamard (only on first input qubit)
-        self.circuit.h(0)  # ❌ should apply to both 0 and 1
+        self.circuit.h(0)  # Faulty: should apply to both 0 and 1
 
         # Step 2: Oracle
         self.apply_oracle()
