@@ -17,7 +17,7 @@ def build_faulty_oracle_circuit(shots=1024):
     qc.cx(0, 2)
     qc.cx(1, 2)
     qc.cx(0, 3)
-    # ❌ missing: qc.cx(1, 3)
+    # Faulty: missing: qc.cx(1, 3)
 
     # Measure all qubits
     qc.measure([0, 1, 2, 3], [0, 1, 2, 3])
