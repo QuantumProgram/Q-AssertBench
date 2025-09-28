@@ -14,7 +14,7 @@ class SimonsAlgorithmCircuit:
         self.backend = Aer.get_backend("qasm_simulator")
 
     def apply_oracle(self):
-        # ❌ Faulty oracle: missing a connection to qubit 3
+        # Faulty: missing a connection to qubit 3
         self.circuit.cx(0, 2)
         self.circuit.cx(1, 2)
         #self.circuit.cx(0, 3)  # Missing
