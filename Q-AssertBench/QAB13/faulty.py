@@ -12,7 +12,7 @@ class DeutschJozsaCircuit:
         self.backend = Aer.get_backend("qasm_simulator")
 
     def apply_oracle(self):
-        # ❌ Faulty: constant oracle, do nothing
+        # Faulty: constant oracle, do nothing
         pass
 
     def build_circuit(self):
