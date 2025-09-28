@@ -9,7 +9,6 @@ class QuantumStateDistributionCircuit:
         self.backend = Aer.get_backend("qasm_simulator")
 
     def build_circuit(self):
-        # Set q[0], q[2], q[3] to |1⟩
         self.circuit.x(0)
         self.circuit.x(2)
         self.circuit.x(3)
@@ -17,7 +16,6 @@ class QuantumStateDistributionCircuit:
         # Faulty: Use weaker rotation → probability of q[1] = 1 is lower
         self.circuit.ry(np.pi / 2, 1)  # Previously was 5π/6
 
-        # Measure all qubits
         self.circuit.measure(range(4), range(4))
 
     def run(self):
