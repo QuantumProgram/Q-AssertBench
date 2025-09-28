@@ -43,6 +43,7 @@ class QFTProgram:
             for k in range(j + 1, n):
                 angle = np.pi / (2 ** (k - j))
                 qc.cp(angle, k, j)
+        # Faulty: Missing swap gates
         #for i in range(n // 2):
             #qc.swap(i, n - i - 1)
 
