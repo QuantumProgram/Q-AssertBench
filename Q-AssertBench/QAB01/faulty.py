@@ -8,7 +8,7 @@ class FaultySuperpositionCircuit:
         self._build()
         
     def _build(self):
-        # Replace q1, q2 with H gates — no classical states
+        # Faulty: replace q1, q2 with H gates
         self.qc.h(0)
         self.qc.h(1)
         self.qc.h(2)
