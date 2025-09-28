@@ -14,7 +14,7 @@ class FaultyGroverSearch:
         qc.h(range(self.n))
         qc.barrier()
 
-        # ❌ Faulty oracle: only marks |101>, misses |110>
+        # Faulty: only marks |101>, misses |110>
         qc.cz(2, 0)
         qc.barrier()
 
