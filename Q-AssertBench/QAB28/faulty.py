@@ -23,29 +23,24 @@ class HHLProgram:
         Build the HHL quantum circuit with incorrect QPE phase.
         """
         qc = QuantumCircuit(3)
-
-        # Step 1: QPE - simulate e^{iAt} with WRONG phase
         qc.h(1)
         qc.cx(1, 0)
 
-        # ❌ WRONG ROTATION: should be 2π/3, using π/3 instead
+        # Faulty: should be 2π/3, using π/3 instead
         qc.rz(np.pi, 0)
 
         qc.cx(1, 0)
         qc.h(1)
 
-        # Step 2: Controlled rotation to ancilla (simulate 1/λ)
         theta = 2 * np.arcsin(1 / 1.5)
         qc.cry(theta, 1, 2)
 
-        # Step 3: Uncompute QPE (also with wrong inverse)
         qc.h(1)
         qc.cx(1, 0)
         qc.rz(-np.pi / 3, 0)  # wrong inverse
         qc.cx(1, 0)
         qc.h(1)
 
-        # Step 4: Measure
         qc.measure_all()
         self.circuit = qc
 
