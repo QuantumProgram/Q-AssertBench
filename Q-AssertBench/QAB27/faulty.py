@@ -12,7 +12,7 @@ class ShorPeriodFindingSimple:
     def build_faulty_circuit(self):
         qc = QuantumCircuit(self.n, self.n)
 
-        # ❌ Faulty: Prepare uniform superposition
+        # Faulty: Prepare uniform superposition
         qc.h(range(self.n-1))
         qc.barrier()
 
