@@ -10,7 +10,7 @@ class SimonsAlgorithmCircuit:
         self.circuit = QuantumCircuit(2 * self.n, self.n)
 
     def apply_oracle(self):
-        # ❌ Faulty oracle: missing one CX connection
+        # Faulty: missing one CX connection
         self.circuit.cx(0, 2)
         self.circuit.cx(1, 2)
         self.circuit.cx(0, 3)
