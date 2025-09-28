@@ -10,7 +10,7 @@ class BernsteinVaziraniCircuit:
         self.circuit = QuantumCircuit(self.n + 1, self.n)
 
     def apply_oracle(self):
-        # ❌ Faulty: forget to encode last bit of a
+        # Faulty: forget to encode last bit of a
         for i, bit in enumerate(self.a[:-1]):  # skip last bit
             if bit == "1":
                 self.circuit.cx(i, self.n)
