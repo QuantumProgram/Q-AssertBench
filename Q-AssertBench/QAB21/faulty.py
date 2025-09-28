@@ -49,11 +49,9 @@ class QuantumFourierTransform:
 if __name__ == "__main__":
     qft_runner = QuantumFourierTransform(n=3, shots=1024)
 
-    # Example: prepare a periodic input state
-    # State = (|0> + |4>)/√2  in the computational basis
-    def prepare_periodic(circuit):# ❌ missing: circuit.h(0)
-        #circuit.h(0)      # put q0 in superposition
-        circuit.x(2)      # shift q2 to create |100> component
+    def prepare_periodic(circuit):# Faulty: missing: circuit.h(0)
+        #circuit.h(0)      
+        circuit.x(2)      
 
     output = qft_runner.build_and_run(prepare_input=prepare_periodic)
 
