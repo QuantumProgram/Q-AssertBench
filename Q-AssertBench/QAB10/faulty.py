@@ -11,10 +11,10 @@ class GHZEntanglementCircuit:
         # Step 1: Put q0 into superposition
         self.circuit.h(0)
 
-        # Step 2: Incorrect entanglement (last CX reversed)
+        # Step 2: Incorrect entanglement
         self.circuit.cx(0, 1)
         self.circuit.cx(1, 2)
-        self.circuit.cx(3, 2)  # ❌ faulty: should be cx(2, 3)
+        self.circuit.cx(3, 2)  # faulty: should be cx(2, 3)
 
         # Step 3: Measurement
         self.circuit.measure(range(4), range(4))
