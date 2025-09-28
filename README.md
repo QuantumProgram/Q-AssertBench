@@ -101,9 +101,7 @@ Experimental_data/
 └── task_level.pdf
 ```
 
-model_output.json is the raw outputs of the LLM.
-
-model_test_result.json is the evaluation summary for that model, obtained by testing and analyzing its outputs.
+model_output.json is the raw outputs of the LLMs. model_test_result.json is the evaluation summary for that model, obtained by testing and analyzing its outputs. And n Evaluation_Script.py is provided as a reference template for conducting evaluations.
 
 Experiment_results.csv/json are the aggregated results across all models and tasks.
 
