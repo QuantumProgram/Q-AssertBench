@@ -11,11 +11,9 @@ class GroverSearchWithUniformCheck:
     def build_circuit(self):
         qc = QuantumCircuit(self.n, self.n)
 
-        # Step 1: Superposition
-        # ❌ Faulty: forgot to apply Hadamards, state remains |000>
+        # Faulty: forgot to apply Hadamards, state remains |000>
         qc.barrier()
 
-        # Step 2: Oracle (mark |101> and |110>)
         qc.cz(2, 0)
         qc.cz(2, 1)
         qc.barrier()
@@ -31,7 +29,6 @@ class GroverSearchWithUniformCheck:
         qc.x(range(self.n))
         qc.h(range(self.n))
 
-        # Step 4: Measurement
         qc.measure(range(self.n), range(self.n))
         return qc
 
