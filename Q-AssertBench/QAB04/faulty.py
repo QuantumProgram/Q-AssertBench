@@ -9,7 +9,7 @@ class PauliGatesCircuit:
         self.backend = Aer.get_backend("qasm_simulator")
 
     def build_circuit(self):
-        # Use RY(θ) with θ = 2π/3 to get 0.75/0.25 probability distribution
+        # Faulty: Use wrong angle to get probability distribution
         self.circuit.ry(1 * np.pi / 4, 0)
 
         self.circuit.measure(0, 0)
