@@ -33,6 +33,7 @@ class QFTWithInverse:
             prepare_input(circuit)
 
         self.apply_qft(circuit)
+        # Faulty: qft_dagger skipped
         #self.apply_qft_dagger(circuit)
 
         circuit.measure(range(self.n), range(self.n))
