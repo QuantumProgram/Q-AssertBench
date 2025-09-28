@@ -25,7 +25,7 @@ class BernsteinVaziraniCircuit:
 
         # Step 2: Apply Hadamard to all qubits (prepare uniform superposition)
         for i in range(self.n + 1):
-            if i != 1:  # ❌ faulty: skip H on qubit 1
+            if i != 1:  # Faulty: skip H on qubit 1
                 self.circuit.h(i)
 
         # Step 3: Apply oracle
