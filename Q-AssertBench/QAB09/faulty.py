@@ -11,7 +11,7 @@ class EntanglementDetectionCircuit:
         # Faulty: Put q0 in superposition, but remove entanglement
         self.circuit.h(0)
 
-        # ❌ Missing CX(0, 1) — no entanglement created
+        # Missing CX(0, 1) — no entanglement created
 
         # Measurement
         self.circuit.measure([0, 1], [0, 1])
