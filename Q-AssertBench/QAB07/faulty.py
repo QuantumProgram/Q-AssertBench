@@ -11,14 +11,10 @@ class UniformDistributionCircuit:
     def build_circuit(self):
         # Faulty: Apply Hadamard only to qubit 0 and 2, omit q[1]
         self.circuit.h(0)
-        # self.circuit.h(1)  # <-- Removed on purpose
-        self.circuit.h(2)
 
-        # Entanglement (still applied)
+        self.circuit.h(2)
         self.circuit.cx(0, 1)
         self.circuit.cx(1, 2)
-
-        # Measurement
         self.circuit.measure(range(3), range(3))
 
     def run(self):
