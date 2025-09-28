@@ -59,7 +59,7 @@ class GroverBenchmark:
         num_iterations = min(10, floor(pi / 4 * sqrt(2 ** self.n)))
         for _ in range(num_iterations):
             self.apply_oracle()
-            # diffuser intentionally skipped
+            # Faulty: diffuser intentionally skipped
         self.circuit.measure(self.qr, self.cr)
 
     def run(self):
