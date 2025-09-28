@@ -15,7 +15,7 @@ class DeutschAlgorithmCircuit:
 
     def apply_oracle(self):
         if self.oracle_type == 0:
-            # ❌ Faulty: instead of doing nothing, apply CX (balanced function)
+            # Faulty: instead of doing nothing, apply CX (balanced function)
             self.circuit.cx(0, 1)
         elif self.oracle_type == 1:
             # Balanced function f(x) = x (this part is correct)
