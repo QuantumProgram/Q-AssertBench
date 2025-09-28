@@ -21,7 +21,7 @@ class FaultySwapCircuit:
             theta = 2 * np.arcsin(np.sqrt(p))
             self.qc.append(U3Gate(theta, 0, 0), [i])
 
-        # Expectation: q0 should match q2 (The probability of being at ‘1’ is 0.7), but swap order is wrong
+        # Faulty: q0 should match q2, but swap order is wrong
         self.expected_prob_q0 = probs[2]
 
     def _apply_swaps(self):
