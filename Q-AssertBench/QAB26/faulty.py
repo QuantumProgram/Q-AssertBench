@@ -26,7 +26,7 @@ class ShorPeriodFinding:
         qc.reset(4)
 
         qc.h(4)
-        # ❌ Faulty: skip some cswap operations
+        # Faulty: skip some cswap operations
         qc.cswap(4, 3, 2)
         # missing qc.cswap(4, 2, 1)
         # missing qc.cswap(4, 1, 0)
