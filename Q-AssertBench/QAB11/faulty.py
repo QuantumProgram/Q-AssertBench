@@ -4,7 +4,6 @@ from qiskit_aer import Aer
 class DeutschAlgorithmCircuit:
     def __init__(self, shots=1024):
         self.shots = shots
-        # 2 qubits, but only 1 classical bit is needed (for q0)
         self.circuit = QuantumCircuit(2, 1)
         self.backend = Aer.get_backend("qasm_simulator")
 
@@ -16,7 +15,7 @@ class DeutschAlgorithmCircuit:
         self.circuit.h(0)
         self.circuit.h(1)
 
-        # ❌ Faulty: Use identity instead of CX oracle (constant function)
+        # Faulty: Use identity instead of CX oracle (constant function)
         # self.circuit.cx(0, 1)
 
         # Apply Hadamard gates again
