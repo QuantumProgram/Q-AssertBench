@@ -8,7 +8,7 @@ class NonEntangledCircuit:
     def build(self):
         self.qc.h(0)
         self.qc.h(1)  
-        # Fault: both qubits in superposition, but not entangled
+        # Faulty: both qubits in superposition, but not entangled
         self.qc.measure([0, 1], [0, 1])
         return self.qc
 
