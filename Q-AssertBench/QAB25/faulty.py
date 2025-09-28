@@ -19,7 +19,7 @@ class GroverDiffusion:
         qc.barrier()
 
         qc.h(range(self.n))
-        # ❌ Missing qc.x(range(self.n))
+        # Faulty: Missing qc.x(range(self.n))
         qc.barrier()
         qc.h(2)
         qc.ccx(0, 1, 2)
