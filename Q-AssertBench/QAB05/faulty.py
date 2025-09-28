@@ -9,7 +9,7 @@ class PauliGatesCircuit:
         self.backend = Aer.get_backend("qasm_simulator")
 
     def build_circuit(self):
-
+        # Faulty: quantum gates skipped
         self.circuit.ry(2 * np.pi / 3, 0)
 
         # Measurement
